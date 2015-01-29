@@ -1,0 +1,12 @@
+---
+- name: Apt-get Update
+  apt: apt_cache=yes upgrade=dist
+
+- name: Add specified repository into sources list.
+  apt_repository: repo='deb http://archive.canonical.com/ubuntu hardy partner' state=present
+
+- name: Add source repository into sources list.
+  apt_repository: repo='deb-src http://archive.canonical.com/ubuntu hardy partner' state=present
+
+- name: Install/Update glibc to the latest
+  apt: name=glibc state=latest
